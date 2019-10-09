@@ -59,7 +59,6 @@ __repo__ = "https://github.com/adafruit/Adafruit_CircuitPython_LSM303DHL_Mag.git
 
 # pylint: disable=bad-whitespace
 _ADDRESS_MAG               = const(0x1E)  # (0x3C >> 1)       // 0011110x
-_ID                        = const(0xD4)  # (0b11010100)
 
 
 MAG_DEVICE_ID = 0b01000000
@@ -153,6 +152,7 @@ class LSM303AGR_Mag:# pylint: disable=too-many-instance-attributes
     def reset(self):
         """Reset the sensor to the default state set by the library"""
         self._soft_reset = True
+        sleep(0.100)
         self._reboot = True
         sleep(0.100)
         self._mode = 0x00
