@@ -44,6 +44,8 @@ Implementation Notes
   https://circuitpython.org/downloads
 * Adafruit's Bus Device library:
   https://github.com/adafruit/Adafruit_CircuitPython_BusDevice
+* Adafruit's Register library:
+  https://github.com/adafruit/Adafruit_CircuitPython_Register
 """
 
 from time import sleep
@@ -65,10 +67,14 @@ MAG_DEVICE_ID = 0b01000000
 
 class DataRate: # pylint: disable=too-few-public-methods
     """Data rate choices to set using `data_rate`"""
-    Rate_10_HZ   = const(0x00)  # 10 Hz
-    Rate_20_HZ   = const(0x01)  # 20 Hz
-    Rate_50_HZ   = const(0x02)  # 50 Hz
-    Rate_100_HZ  = const(0x03)  # 100 Hz
+    Rate_10_HZ   = const(0x00)
+    """10 Hz"""
+    Rate_20_HZ   = const(0x01)
+    """20 Hz"""
+    Rate_50_HZ   = const(0x02)
+    """50 Hz"""
+    Rate_100_HZ  = const(0x03)
+    """100 Hz"""
 
 
 # Magnetometer registers
@@ -98,7 +104,12 @@ OUTZ_H_REG = 0x6D
 _MAG_SCALE = 0.15 # 1.5 milligauss/LSB * 0.1 microtesla/milligauss
 
 class LSM303AGR_Mag:# pylint: disable=too-many-instance-attributes
-    """Driver for the LSM303AGR's 'magnetometer."""
+    """
+    Driver for the Driver for the LSM303AGR's 'magnetometer.
+
+    :param busio.I2C i2c_bus: The I2C bus the LSM303AGR is connected to.
+
+    """
     _BUFFER = bytearray(6)
 
     _device_id = ROUnaryStruct(WHO_AM_I, "B")
@@ -163,7 +174,7 @@ class LSM303AGR_Mag:# pylint: disable=too-many-instance-attributes
         self._interrupt_pin_putput = True
         self._temp_comp = True
 
-        sleep(0.020) # sleep 20ms to allow measurements to stabilize
+        sleep(0.030) # sleep 20ms to allow measurements to stabilize
 
     @property
     def magnetic(self):
