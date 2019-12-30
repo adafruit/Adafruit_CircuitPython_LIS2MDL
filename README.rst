@@ -10,8 +10,8 @@ Introduction
     :target: https://discord.gg/nBQh6qu
     :alt: Discord
 
-.. image:: https://travis-ci.com/adafruit/Adafruit_CircuitPython_LSM303AGR_Mag.svg?branch=master
-    :target: https://travis-ci.com/adafruit/Adafruit_CircuitPython_LSM303AGR_Mag
+.. image:: https://github.com/adafruit/Adafruit_CircuitPython_LSM303AGR_Mag/workflows/Build%20CI/badge.svg
+    :target: https://github.com/adafruit/Adafruit_CircuitPython_LSM303AGR_Mag/actions/
     :alt: Build Status
 
 Adafruit CircuitPython module for the LSM303AGR's 3-axis magnetometer
