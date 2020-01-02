@@ -3,10 +3,10 @@
 import time
 import board
 import busio
-import adafruit_lsm303agr_mag
+import adafruit_lis2mdl
 
 i2c = busio.I2C(board.SCL, board.SDA)
-sensor = adafruit_lsm303agr_mag.LSM303AGR_Mag(i2c)
+sensor = adafruit_lis2mdl.LIS2MDL(i2c)
 
 while True:
     mag_x, mag_y, mag_z = sensor.magnetic

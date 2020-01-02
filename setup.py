@@ -18,17 +18,17 @@ with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
     long_description = f.read()
 
 setup(
-    name='adafruit-circuitpython-lsm303agr-mag',
+    name='adafruit-circuitpython-lis2mdl',
 
     use_scm_version=True,
     setup_requires=['setuptools_scm'],
 
-    description='CircuitPython library for LSM303AGR\'s 3-axis magnetometer.',
+    description='CircuitPython library for LIS2MDL 3-axis magnetometer.',
     long_description=long_description,
     long_description_content_type='text/x-rst',
 
     # The project's main homepage.
-    url='https://github.com/adafruit/Adafruit_CircuitPython_LSM303AGR_Mag',
+    url='https://github.com/adafruit/Adafruit_CircuitPython_LIS2MDL',
 
     # Author details
     author='Adafruit Industries',
@@ -52,10 +52,10 @@ setup(
     ],
 
     # What does your project relate to?
-    keywords='adafruit lsm303 6dof 6-dof magnetometer axis'
+    keywords='adafruit lsm303 lis2mdl 3-dof 3-axis 6dof 6-dof magnetometer axis'
              'breakout hardware micropython circuitpython',
 
     # You can just specify the packages manually here if your project is
     # simple. Or you can use find_packages().
-    py_modules=['adafruit_lsm303agr_mag'],
+    py_modules=['adafruit_lis2mdl'],
 )

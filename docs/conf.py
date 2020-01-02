@@ -31,7 +31,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'Adafruit LSM303AGR Magnetometer Library'
+project = u'Adafruit LIS2MDL 3-axis Magnetometer Library'
 copyright = u'2019 Bryan Siepert'
 author = u'Bryan Siepert'
 
@@ -105,7 +105,7 @@ html_static_path = ['_static']
 html_favicon = '_static/favicon.ico'
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'AdafruitLsm303AgrMagLibrarydoc'
+htmlhelp_basename = 'AdafruitLIS2MDLLibrarydoc'
 
 # -- Options for LaTeX output ---------------------------------------------
 
@@ -131,7 +131,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'AdafruitLSM303AGRMagLibrary.tex', u'Adafruit LSM303AGR Magnetometer Library Documentation',
+    (master_doc, 'AdafruitLIS2MDLLibrary.tex', u'Adafruit LIS2MDL 3-axis Magnetometer Library Documentation',
      author, 'manual'),
 ]
 
@@ -140,7 +140,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'AdafruitLSM303AGRMaglibrary', u'Adafruit LSM303AGR Magnetometer Library Documentation',
+    (master_doc, 'AdafruitLIS2MDLlibrary', u'Adafruit LIS2MDL 3-axis Magnetometer Library Documentation',
      [author], 1)
 ]
 
@@ -150,7 +150,7 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'AdafruitLSM303AGRMagLibrary', u'Adafruit LSM303AGR Magnetometer Library Documentation',
-     author, 'AdafruitLSM303AGRMAgLibrary', 'One line description of project.',
+    (master_doc, 'AdafruitLIS2MDLLibrary', u'Adafruit LIS2MDL 3-axis Magnetometer Library Documentation',
+     author, 'AdafruitLIS2MDLLibrary', 'One line description of project.',
      'Miscellaneous'),
 ]

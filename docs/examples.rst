@@ -3,12 +3,12 @@ Simple tests
 
 Ensure your device works with these simple tests.
 
-.. literalinclude:: ../examples/lsm303agr_mag_simpletest.py
-    :caption: examples/lsm303agr_mag_simpletest.py
+.. literalinclude:: ../examples/lis2mdl_simpletest.py
+    :caption: examples/lis2mdl_simpletest.py
     :linenos:
 
-.. literalinclude:: ../examples/lsm303agr_mag_interrupt.py
-    :caption: examples/lsm303agr_mag_interrupt.py
+.. literalinclude:: ../examples/lis2mdl_interrupt.py
+    :caption: examples/lis2mdl_interrupt.py
     :linenos:
 
-examples/lsm303agr_mag_interrupt.py
+examples/lis2mdl_interrupt.py

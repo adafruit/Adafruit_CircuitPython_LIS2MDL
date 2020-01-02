@@ -20,11 +20,11 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 """
-`adafruit_lsm303agr_mag`
+`adafruit_lis2mdl`
 ====================================================
 
 
-CircuitPython driver for the LSM303AGR's magnetometer.
+CircuitPython driver for the LIS2MDL 3-axis magnetometer.
 
 * Author(s): Bryan Siepert
 
@@ -57,7 +57,7 @@ from adafruit_register.i2c_bits import RWBits
 
 
 __version__ = "0.0.0-auto.0"
-__repo__ = "https://github.com/adafruit/Adafruit_CircuitPython_LSM303DHL_Mag.git"
+__repo__ = "https://github.com/adafruit/Adafruit_CircuitPython_LIS2MDL.git"
 
 # pylint: disable=bad-whitespace
 _ADDRESS_MAG               = const(0x1E)  # (0x3C >> 1)       // 0011110x
@@ -103,11 +103,11 @@ OUTZ_H_REG = 0x6D
 
 _MAG_SCALE = 0.15 # 1.5 milligauss/LSB * 0.1 microtesla/milligauss
 
-class LSM303AGR_Mag:# pylint: disable=too-many-instance-attributes
+class LIS2MDL:# pylint: disable=too-many-instance-attributes
     """
-    Driver for the Driver for the LSM303AGR's 'magnetometer.
+    Driver for the LIS2MDL 3-axis magnetometer.
 
-    :param busio.I2C i2c_bus: The I2C bus the LSM303AGR is connected to.
+    :param busio.I2C i2c_bus: The I2C bus the LIS2MDL is connected to.
 
     """
     _BUFFER = bytearray(6)
@@ -156,7 +156,7 @@ class LSM303AGR_Mag:# pylint: disable=too-many-instance-attributes
         self.i2c_device = I2CDevice(i2c, _ADDRESS_MAG)
 
         if self._device_id != 0x40:
-            raise AttributeError("Cannot find an LSM303AGR")
+            raise AttributeError("Cannot find an LIS2MDL")
 
         self.reset()
 

@@ -2,19 +2,19 @@
 Introduction
 ============
 
-.. image:: https://readthedocs.org/projects/adafruit-circuitpython-lsm303agr-mag/badge/?version=latest
-    :target: https://circuitpython.readthedocs.io/projects/lsm303agr-mag/en/latest/
+.. image:: https://readthedocs.org/projects/adafruit-circuitpython-lis2mdl-mag/badge/?version=latest
+    :target: https://circuitpython.readthedocs.io/projects/lis2mdl-mag/en/latest/
     :alt: Documentation Status
 
 .. image :: https://img.shields.io/discord/327254708534116352.svg
     :target: https://discord.gg/nBQh6qu
     :alt: Discord
 
-.. image:: https://github.com/adafruit/Adafruit_CircuitPython_LSM303AGR_Mag/workflows/Build%20CI/badge.svg
-    :target: https://github.com/adafruit/Adafruit_CircuitPython_LSM303AGR_Mag/actions/
+.. image:: https://github.com/adafruit/Adafruit_CircuitPython_LIS2MDL/workflows/Build%20CI/badge.svg
+    :target: https://github.com/adafruit/Adafruit_CircuitPython_LIS2MDL/actions/
     :alt: Build Status
 
-Adafruit CircuitPython module for the LSM303AGR's 3-axis magnetometer
+Adafruit CircuitPython module for the LIS2MDL 3-axis magnetometer
 
 Dependencies
 =============
@@ -32,17 +32,17 @@ Installing from PyPI
 ====================
 
 On supported GNU/Linux systems like the Raspberry Pi, you can install the driver locally `from
-PyPI <https://pypi.org/project/adafruit-circuitpython-lsm303agr_mag/>`_. To install for current user:
+PyPI <https://pypi.org/project/adafruit-circuitpython-lis2mdl/>`_. To install for current user:
 
 .. code-block:: shell
 
-    pip3 install adafruit-circuitpython-lsm303agr_mag
+    pip3 install adafruit-circuitpython-lis2mdl
 
 To install system-wide (this may be required in some cases):
 
 .. code-block:: shell
 
-    sudo pip3 install adafruit-circuitpython-lsm303agr_mag
+    sudo pip3 install adafruit-circuitpython-lis2mdl
 
 To install in a virtual environment in your current project:
 
@@ -51,7 +51,7 @@ To install in a virtual environment in your current project:
     mkdir project-name && cd project-name
     python3 -m venv .env
     source .env/bin/activate
-    pip3 install adafruit-circuitpython-lsm303agr_mag
+    pip3 install adafruit-circuitpython-lis2mdl
 
 Usage Example
 =============
@@ -61,10 +61,10 @@ Usage Example
     import time
     import board
     import busio
-    import adafruit_lsm303agr_mag
+    import adafruit_lis2mdl
 
     i2c = busio.I2C(board.SCL, board.SDA)
-    sensor = adafruit_lsm303agr_mag.LSM303AGR_Mag(i2c)
+    sensor = adafruit_lis2mdl.LIS2MDL(i2c)
 
     while True:
         mag_x, mag_y, mag_z = sensor.magnetic
@@ -78,7 +78,7 @@ Contributing
 ============
 
 Contributions are welcome! Please read our `Code of Conduct
-<https://github.com/adafruit/Adafruit_CircuitPython_LSM303AGR_Mag/blob/master/CODE_OF_CONDUCT.md>`_
+<https://github.com/adafruit/Adafruit_CircuitPython_LIS2MDL/blob/master/CODE_OF_CONDUCT.md>`_
 before contributing to help this project stay welcoming.
 
 Documentation
