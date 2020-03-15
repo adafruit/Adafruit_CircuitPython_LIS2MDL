@@ -12,9 +12,9 @@ while True:
     x_hi, y_hi, z_hi, x_lo, y_lo, z_lo, int_triggered = lis.faults
 
     print(lis.magnetic)
-    print("Xhi:%s\tYhi:%s\tZhi:%s"%(x_hi, y_hi, z_hi))
-    print("Xlo:%s\tYlo:%s\tZlo:%s"%(x_lo, y_lo, z_lo))
-    print("Int triggered: %s"%int_triggered)
+    print("Xhi:%s\tYhi:%s\tZhi:%s" % (x_hi, y_hi, z_hi))
+    print("Xlo:%s\tYlo:%s\tZlo:%s" % (x_lo, y_lo, z_lo))
+    print("Int triggered: %s" % int_triggered)
     print()
 
     time.sleep(1)
