@@ -60,20 +60,22 @@ __version__ = "0.0.0-auto.0"
 __repo__ = "https://github.com/adafruit/Adafruit_CircuitPython_LIS2MDL.git"
 
 # pylint: disable=bad-whitespace
-_ADDRESS_MAG               = const(0x1E)  # (0x3C >> 1)       // 0011110x
+_ADDRESS_MAG = const(0x1E)  # (0x3C >> 1)       // 0011110x
 
 
 MAG_DEVICE_ID = 0b01000000
 
-class DataRate: # pylint: disable=too-few-public-methods
+
+class DataRate:  # pylint: disable=too-few-public-methods
     """Data rate choices to set using `data_rate`"""
-    Rate_10_HZ   = const(0x00)
+
+    Rate_10_HZ = const(0x00)
     """10 Hz"""
-    Rate_20_HZ   = const(0x01)
+    Rate_20_HZ = const(0x01)
     """20 Hz"""
-    Rate_50_HZ   = const(0x02)
+    Rate_50_HZ = const(0x02)
     """50 Hz"""
-    Rate_100_HZ  = const(0x03)
+    Rate_100_HZ = const(0x03)
     """100 Hz"""
 
 
@@ -88,7 +90,7 @@ WHO_AM_I = 0x4F
 CFG_REG_A = 0x60
 CFG_REG_B = 0x61
 CFG_REG_C = 0x62
-INT_CRTL_REG  = 0x63
+INT_CRTL_REG = 0x63
 INT_SOURCE_REG = 0x64
 INT_THS_L_REG = 0x65
 STATUS_REG = 0x67
@@ -101,15 +103,17 @@ OUTZ_H_REG = 0x6D
 
 # pylint: enable=bad-whitespace
 
-_MAG_SCALE = 0.15 # 1.5 milligauss/LSB * 0.1 microtesla/milligauss
+_MAG_SCALE = 0.15  # 1.5 milligauss/LSB * 0.1 microtesla/milligauss
 
-class LIS2MDL:# pylint: disable=too-many-instance-attributes
+
+class LIS2MDL:  # pylint: disable=too-many-instance-attributes
     """
     Driver for the LIS2MDL 3-axis magnetometer.
 
     :param busio.I2C i2c_bus: The I2C bus the LIS2MDL is connected to.
 
     """
+
     _BUFFER = bytearray(6)
 
     _device_id = ROUnaryStruct(WHO_AM_I, "B")
@@ -139,7 +143,6 @@ class LIS2MDL:# pylint: disable=too-many-instance-attributes
 
     _int_source = ROUnaryStruct(INT_SOURCE_REG, "B")
 
-
     low_power = RWBit(CFG_REG_A, 4, 1)
 
     """Enables and disables low power mode"""
@@ -167,14 +170,14 @@ class LIS2MDL:# pylint: disable=too-many-instance-attributes
         self._reboot = True
         sleep(0.100)
         self._mode = 0x00
-        self._bdu = True # Make sure high and low bytes are set together
+        self._bdu = True  # Make sure high and low bytes are set together
         self._int_latched = True
         self._int_reg_polarity = True
         self._int_iron_off = False
         self._interrupt_pin_putput = True
         self._temp_comp = True
 
-        sleep(0.030) # sleep 20ms to allow measurements to stabilize
+        sleep(0.030)  # sleep 20ms to allow measurements to stabilize
 
     @property
     def magnetic(self):
@@ -182,7 +185,11 @@ class LIS2MDL:# pylint: disable=too-many-instance-attributes
         A 3-tuple of X, Y, Z axis values in microteslas that are signed floats.
         """
 
-        return (self._raw_x * _MAG_SCALE, self._raw_y * _MAG_SCALE, self._raw_z * _MAG_SCALE)
+        return (
+            self._raw_x * _MAG_SCALE,
+            self._raw_y * _MAG_SCALE,
+            self._raw_z * _MAG_SCALE,
+        )
 
     @property
     def data_rate(self):
@@ -191,8 +198,12 @@ class LIS2MDL:# pylint: disable=too-many-instance-attributes
 
     @data_rate.setter
     def data_rate(self, value):
-        if not value in (DataRate.Rate_10_HZ, DataRate.Rate_20_HZ,
-                         DataRate.Rate_50_HZ, DataRate.Rate_100_HZ):
+        if not value in (
+            DataRate.Rate_10_HZ,
+            DataRate.Rate_20_HZ,
+            DataRate.Rate_50_HZ,
+            DataRate.Rate_100_HZ,
+        ):
             raise ValueError("data_rate must be a `DataRate`")
         self._data_rate = value
 
@@ -206,7 +217,7 @@ class LIS2MDL:# pylint: disable=too-many-instance-attributes
     def interrupt_threshold(self, value):
         if value < 0:
             value = -value
-        self._interrupt_threshold = int(value/_MAG_SCALE)
+        self._interrupt_threshold = int(value / _MAG_SCALE)
 
     @property
     def interrupt_enabled(self):
@@ -243,7 +254,7 @@ class LIS2MDL:# pylint: disable=too-many-instance-attributes
 
     @x_offset.setter
     def x_offset(self, value):
-        self._x_offset = int(value/_MAG_SCALE)
+        self._x_offset = int(value / _MAG_SCALE)
 
     @property
     def y_offset(self):
@@ -253,7 +264,7 @@ class LIS2MDL:# pylint: disable=too-many-instance-attributes
 
     @y_offset.setter
     def y_offset(self, value):
-        self._y_offset = int(value/_MAG_SCALE)
+        self._y_offset = int(value / _MAG_SCALE)
 
     @property
     def z_offset(self):
@@ -263,4 +274,4 @@ class LIS2MDL:# pylint: disable=too-many-instance-attributes
 
     @z_offset.setter
     def z_offset(self, value):
-        self._z_offset = int(value/_MAG_SCALE)
+        self._z_offset = int(value / _MAG_SCALE)
