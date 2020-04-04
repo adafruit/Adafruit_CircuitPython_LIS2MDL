@@ -13,11 +13,12 @@ sensor = adafruit_lis2mdl.LIS2MDL(i2c)
 # these values are in uT and are in X, Y, Z order (min and max values)
 hardiron_calibration = [[-61.4879, 34.4782], [-43.6714, 53.5662], [-40.7337, 52.4554]]
 
+
 # This will take the magnetometer values, adjust them with the calibraitons
 # and return a new array with the XYZ values ranging from -100 to 100
-def normalize(magvals):
+def normalize(_magvals):
     ret = [0, 0, 0]
-    for i, axis in enumerate(magvals):
+    for i, axis in enumerate(_magvals):
         minv, maxv = hardiron_calibration[i]
         axis = min(max(minv, axis), maxv)  # keep within min/max calibration
         ret[i] =(axis - minv) * 200 / (maxv - minv) + -100

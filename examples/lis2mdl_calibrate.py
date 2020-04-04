@@ -11,6 +11,7 @@ magnetometer = adafruit_lis2mdl.LIS2MDL(i2c)
 # calibration for magnetometer X (min, max), Y and Z
 hardiron_calibration = [[1000, -1000], [1000, -1000], [1000, -1000]]
 
+
 def calibrate():
     start_time = time.monotonic()
 
@@ -23,6 +24,7 @@ def calibrate():
             hardiron_calibration[i][1] = max(hardiron_calibration[i][1], axis)
     print("Calibration complete:")
     print("hardiron_calibration =", hardiron_calibration)
+
 
 print("Prepare to calibrate! Twist the magnetometer around in 3D in...")
 print("3...")
