@@ -18,7 +18,7 @@ def calibrate():
     # Update the high and low extremes
     while time.monotonic() - start_time < 10.0:
         magval = magnetometer.magnetic
-        print('Calibrating - X:{0:10.2f}, Y:{1:10.2f}, Z:{2:10.2f} uT'.format(*magval))
+        print("Calibrating - X:{0:10.2f}, Y:{1:10.2f}, Z:{2:10.2f} uT".format(*magval))
         for i, axis in enumerate(magval):
             hardiron_calibration[i][0] = min(hardiron_calibration[i][0], axis)
             hardiron_calibration[i][1] = max(hardiron_calibration[i][1], axis)

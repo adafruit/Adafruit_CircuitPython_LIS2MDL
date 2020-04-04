@@ -21,7 +21,7 @@ def normalize(_magvals):
     for i, axis in enumerate(_magvals):
         minv, maxv = hardiron_calibration[i]
         axis = min(max(minv, axis), maxv)  # keep within min/max calibration
-        ret[i] =(axis - minv) * 200 / (maxv - minv) + -100
+        ret[i] = (axis - minv) * 200 / (maxv - minv) + -100
     return ret
 
 
