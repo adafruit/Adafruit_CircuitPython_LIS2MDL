@@ -59,7 +59,6 @@ from adafruit_register.i2c_bits import RWBits
 __version__ = "0.0.0-auto.0"
 __repo__ = "https://github.com/adafruit/Adafruit_CircuitPython_LIS2MDL.git"
 
-# pylint: disable=bad-whitespace
 _ADDRESS_MAG = const(0x1E)  # (0x3C >> 1)       // 0011110x
 
 
@@ -101,7 +100,6 @@ OUTY_H_REG = 0x6B
 OUTZ_L_REG = 0x6C
 OUTZ_H_REG = 0x6D
 
-# pylint: enable=bad-whitespace
 
 _MAG_SCALE = 0.15  # 1.5 milligauss/LSB * 0.1 microtesla/milligauss
 
