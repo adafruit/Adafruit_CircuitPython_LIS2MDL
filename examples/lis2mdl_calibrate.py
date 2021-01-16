@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2021 ladyada for Adafruit Industries
+# SPDX-License-Identifier: MIT
+
 """ Calibrate the magnetometer and print out the hard-iron calibrations """
 
 import time
