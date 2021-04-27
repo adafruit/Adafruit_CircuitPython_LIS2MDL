@@ -23,6 +23,8 @@ Table of Contents
 .. toctree::
     :caption: Tutorials
 
+    Triple-axis Accelerometer+Magnetometer (Compass) Board - LSM303 <https://learn.adafruit.com/lsm303-accelerometer-slash-compass-breakout/downloads>
+
 .. toctree::
     :caption: Related Products
 

@@ -5,10 +5,9 @@
 
 import time
 import board
-import busio
 import adafruit_lis2mdl
 
-i2c = busio.I2C(board.SCL, board.SDA)
+i2c = board.I2C()
 sensor = adafruit_lis2mdl.LIS2MDL(i2c)
 
 while True:
