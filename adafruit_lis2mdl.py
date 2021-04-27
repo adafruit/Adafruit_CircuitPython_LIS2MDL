@@ -105,7 +105,7 @@ class LIS2MDL:  # pylint: disable=too-many-instance-attributes
 
         .. code-block:: python
 
-            i2c = board.I2C()
+            i2c = board.I2C()  # uses board.SCL and board.SDA
             sensor = adafruit_lis2mdl.LIS2MDL(i2c)
 
         Now you have access to the :attr:`magnetic` attribute
