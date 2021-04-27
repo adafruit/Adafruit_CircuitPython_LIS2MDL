@@ -23,12 +23,10 @@ Implementation Notes
 
 **Software and Dependencies:**
 
-* Adafruit CircuitPython firmware:
+* Adafruit CircuitPython firmware for the supported boards:
   https://circuitpython.org/downloads
-* Adafruit's Bus Device library:
-  https://github.com/adafruit/Adafruit_CircuitPython_BusDevice
-* Adafruit's Register library:
-  https://github.com/adafruit/Adafruit_CircuitPython_Register
+* Adafruit's Bus Device library: https://github.com/adafruit/Adafruit_CircuitPython_BusDevice
+* Adafruit's Register library: https://github.com/adafruit/Adafruit_CircuitPython_Register
 """
 
 from time import sleep
@@ -91,7 +89,31 @@ class LIS2MDL:  # pylint: disable=too-many-instance-attributes
     """
     Driver for the LIS2MDL 3-axis magnetometer.
 
-    :param busio.I2C i2c_bus: The I2C bus the LIS2MDL is connected to.
+    :param ~busio.I2C i2c:  The I2C bus the device is connected to
+
+    **Quickstart: Importing and using the device**
+
+        Here is an example of using the :class:`LIS2MDL` class.
+        First you will need to import the libraries to use the sensor
+
+        .. code-block:: python
+
+            import board
+            import adafruit_lis2mdl
+
+        Once this is done you can define your `board.I2C` object and define your sensor object
+
+        .. code-block:: python
+
+            i2c = board.I2C()  # uses board.SCL and board.SDA
+            sensor = adafruit_lis2mdl.LIS2MDL(i2c)
+
+        Now you have access to the :attr:`magnetic` attribute
+
+        .. code-block:: python
+
+            mag_x, mag_y, mag_z = sensor.magnetic
+
 
     """
 

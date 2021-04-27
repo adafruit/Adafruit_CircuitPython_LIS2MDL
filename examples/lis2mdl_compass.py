@@ -6,10 +6,9 @@
 import time
 import math
 import board
-import busio
 import adafruit_lis2mdl
 
-i2c = busio.I2C(board.SCL, board.SDA)
+i2c = board.I2C()  # uses board.SCL and board.SDA
 sensor = adafruit_lis2mdl.LIS2MDL(i2c)
 
 # You will need the calibration values from your magnetometer calibration
