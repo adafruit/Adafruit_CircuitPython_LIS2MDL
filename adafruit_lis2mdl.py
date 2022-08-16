@@ -37,7 +37,7 @@ from adafruit_register.i2c_bit import RWBit
 from adafruit_register.i2c_bits import RWBits
 
 
-__version__ = "0.0.0-auto.0"
+__version__ = "0.0.0+auto.0"
 __repo__ = "https://github.com/adafruit/Adafruit_CircuitPython_LIS2MDL.git"
 
 _ADDRESS_MAG = const(0x1E)  # (0x3C >> 1)       // 0011110x
