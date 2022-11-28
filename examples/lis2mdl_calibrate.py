@@ -8,6 +8,7 @@ import board
 import adafruit_lis2mdl
 
 i2c = board.I2C()  # uses board.SCL and board.SDA
+# i2c = board.STEMMA_I2C()  # For using the built-in STEMMA QT connector on a microcontroller
 magnetometer = adafruit_lis2mdl.LIS2MDL(i2c)
 
 # calibration for magnetometer X (min, max), Y and Z
