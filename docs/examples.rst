@@ -33,3 +33,12 @@ Calibrate the magnetometer and print out the hard-iron calibrations
 .. literalinclude:: ../examples/lis2mdl_calibrate.py
     :caption: examples/lis2mdl_calibrate.py
     :linenos:
+
+DisplayIO Simpletest
+---------------------
+
+This is a simple test for boards with built-in display.
+
+.. literalinclude:: ../examples/lis2mdl_displayio_simpletest.py
+    :caption: examples/lis2mdl_displayio_simpletest.py
+    :linenos:
