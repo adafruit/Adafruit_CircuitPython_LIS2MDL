@@ -30,16 +30,18 @@ Implementation Notes
 """
 
 from time import sleep
-from micropython import const
+
 from adafruit_bus_device.i2c_device import I2CDevice
-from adafruit_register.i2c_struct import UnaryStruct, ROUnaryStruct
 from adafruit_register.i2c_bit import RWBit
 from adafruit_register.i2c_bits import RWBits
+from adafruit_register.i2c_struct import ROUnaryStruct, UnaryStruct
+from micropython import const
 
 try:
     from typing import Tuple
-    from typing_extensions import Literal
+
     from busio import I2C
+    from typing_extensions import Literal
 except ImportError:
     pass
 
@@ -52,7 +54,7 @@ _ADDRESS_MAG = const(0x1E)  # (0x3C >> 1)       // 0011110x
 MAG_DEVICE_ID = 0b01000000
 
 
-class DataRate:  # pylint: disable=too-few-public-methods
+class DataRate:
     """Data rate choices to set using `data_rate`"""
 
     Rate_10_HZ = const(0x00)
@@ -91,7 +93,7 @@ OUTZ_H_REG = 0x6D
 _MAG_SCALE = 0.15  # 1.5 milligauss/LSB * 0.1 microtesla/milligauss
 
 
-class LIS2MDL:  # pylint: disable=too-many-instance-attributes
+class LIS2MDL:
     """
     Driver for the LIS2MDL 3-axis magnetometer.
 
@@ -207,12 +209,12 @@ class LIS2MDL:  # pylint: disable=too-many-instance-attributes
 
     @data_rate.setter
     def data_rate(self, value: Literal[0x00, 0x01, 0x02, 0x03]) -> None:
-        if not value in (
+        if value not in {
             DataRate.Rate_10_HZ,
             DataRate.Rate_20_HZ,
             DataRate.Rate_50_HZ,
             DataRate.Rate_100_HZ,
-        ):
+        }:
             raise ValueError("data_rate must be a `DataRate`")
         self._data_rate = value
 
