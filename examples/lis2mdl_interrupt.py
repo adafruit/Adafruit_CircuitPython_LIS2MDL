@@ -2,7 +2,9 @@
 # SPDX-License-Identifier: MIT
 
 import time
+
 import board
+
 import adafruit_lis2mdl
 
 i2c = board.I2C()  # uses board.SCL and board.SDA
@@ -15,9 +17,9 @@ while True:
     x_hi, y_hi, z_hi, x_lo, y_lo, z_lo, int_triggered = lis.faults
 
     print(lis.magnetic)
-    print("Xhi:%s\tYhi:%s\tZhi:%s" % (x_hi, y_hi, z_hi))
-    print("Xlo:%s\tYlo:%s\tZlo:%s" % (x_lo, y_lo, z_lo))
-    print("Int triggered: %s" % int_triggered)
+    print(f"Xhi:{x_hi}\tYhi:{y_hi}\tZhi:{z_hi}")
+    print(f"Xlo:{x_lo}\tYlo:{y_lo}\tZlo:{z_lo}")
+    print(f"Int triggered: {int_triggered}")
     print()
 
     time.sleep(1)

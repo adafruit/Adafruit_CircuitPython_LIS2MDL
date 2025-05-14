@@ -1,11 +1,13 @@
 # SPDX-FileCopyrightText: 2021 ladyada for Adafruit Industries
 # SPDX-License-Identifier: MIT
 
-""" Display compass heading data from a calibrated magnetometer """
+"""Display compass heading data from a calibrated magnetometer"""
 
-import time
 import math
+import time
+
 import board
+
 import adafruit_lis2mdl
 
 i2c = board.I2C()  # uses board.SCL and board.SDA
@@ -35,7 +37,7 @@ def normalize(_magvals):
     ret = [0, 0, 0]
     for i, axis in enumerate(_magvals):
         minv, maxv = hardiron_calibration[i]
-        axis = min(max(minv, axis), maxv)  # keep within min/max calibration
+        axis = min(max(minv, axis), maxv)  # keep within min/max calibration  # noqa: PLW2901
         ret[i] = (axis - minv) * 200 / (maxv - minv) + -100
     return ret
 
@@ -43,7 +45,7 @@ def normalize(_magvals):
 while True:
     magvals = sensor.magnetic
     normvals = normalize(magvals)
-    print("magnetometer: %s -> %s" % (magvals, normvals))
+    print(f"magnetometer: {magvals} -> {normvals}")
 
     # we will only use X and Y for the compass calculations, so hold it level!
     compass_heading = int(math.atan2(normvals[1], normvals[0]) * 180.0 / math.pi)

@@ -1,10 +1,12 @@
 # SPDX-FileCopyrightText: 2021 ladyada for Adafruit Industries
 # SPDX-License-Identifier: MIT
 
-""" Calibrate the magnetometer and print out the hard-iron calibrations """
+"""Calibrate the magnetometer and print out the hard-iron calibrations"""
 
 import time
+
 import board
+
 import adafruit_lis2mdl
 
 i2c = board.I2C()  # uses board.SCL and board.SDA
